@@ -1,0 +1,10 @@
+{% if customer %}
+  <h2>Your Wishlist</h2>
+  <ul class="wishlist">
+    {% for wishlist_item in customer.metafields.my_namespace.wishlist %}
+      <li><a href="{{ wishlist_item.product_url }}">{{ wishlist_item.product_title }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Please log in to view your wishlist.</p>
+{% endif %}
