@@ -102,7 +102,7 @@
   </li>
   {% endif %}
 </ul>
-              <script type="text/javascript">
+              <script type="lazyload_int">
 window.addEventListener("DOMContentLoaded", function() {
   $(".theme-default-pagination .disabled a").removeAttr("href");
   $(".theme-default-pagination li.active a").removeAttr("href");
@@ -218,7 +218,7 @@ window.addEventListener("DOMContentLoaded", function() {
       <div class="{% if section.settings.sidebar_handle == 'without_sidebar' %}product-sidebar{% else %}col-xl-3 col-lg-4 col-md-12 col-12 pro-grli-wrap{% endif %}">
         <div id="main-collection-filters" data-id="{{ section.id }}">
           {% render 'collection-sidebar', results: collection %}
-          <script src="{{ 'collection-sidebar.js' | asset_url }}" defer="defer"></script>
+          <script type="lazyload_int" data-src="{{ 'collection-sidebar.js' | asset_url }}"></script>
           {% if section.settings.sidebar_banner_enable %}
           <div class="sidebar-banner banner-hover{% if section.settings.sidebar_handle == 'without_sidebar' %} sidebar-without-banner{% endif %}">
             <a href="{{ section.settings.sidebar_banner_url }}" class="sidebar-img banner-img">

@@ -45,7 +45,7 @@
                 {% render 'wishlist-button2' %}
                 {%- endif -%}
               </div>
-              <script type="text/javascript">
+              <script type="lazyload_int">
                 addEventListener('DOMContentLoaded', (event) => {
                   jQuery('.addtocartqv').on('click',function(e) {
                     e.preventDefault();
@@ -67,7 +67,7 @@
   <div class="button_error">{{ settings.qcv_cart_error_text }}</div>
   <div class="button_wait">{{ settings.qcv_cart_wait_text }}</div>
 </div>
-<script type="text/javascript">
+<script type="lazyload_int">
 addEventListener('DOMContentLoaded', (event) => {
   var mainImage = '';
     quiqview = function(product_handle) {

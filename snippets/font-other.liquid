@@ -1,0 +1,35 @@
+<style>
+    {% if settings.header_custom_font_handle_enable %}
+    @import url('https://fonts.googleapis.com/css2?family={{ settings.header_custom_font_handle }}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    {% else %}
+    {{ header_font | font_face: font_display: 'swap' }}
+    {% endif %}
+    
+    {% if settings.section_header_custom_font_handle_enable %}
+    @import url('https://fonts.googleapis.com/css2?family={{ settings.section_header_custom_font_handle }}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    {% else %}
+    {{ section_header_font | font_face: font_display: 'swap' }}
+    {% endif %}
+    
+    {% if settings.paragraph_custom_font_handle_enable %}
+    @import url('https://fonts.googleapis.com/css2?family={{ settings.paragraph_custom_font_handle }}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    {% else %}
+    {{ paragraph_font | font_face: font_display: 'swap' }}
+    {% endif %}
+    
+    {% if settings.other_custom_font_handle_enable %}
+    @import url('https://fonts.googleapis.com/css2?family={{ settings.other_custom_font_handle }}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    {% else %}
+    {{ other_font | font_face: font_display: 'swap' }}
+    {% endif %}
+    
+    {% if settings.body_custom_font_handle_enable %}
+    @import url('https://fonts.googleapis.com/css2?family={{ settings.body_custom_font_handle }}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    {% else %}
+    {{ body_font | font_face: font_display: 'swap' }}
+    {{ body_font_bolder | font_face: font_display: 'swap' }}
+    {{ body_font_bold | font_face: font_display: 'swap' }}
+    {{ body_font_italic | font_face: font_display: 'swap' }}
+    {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+    {% endif %}
+</style>

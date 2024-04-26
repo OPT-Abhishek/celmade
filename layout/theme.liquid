@@ -1,24 +1,29 @@
 <!doctype html>
 <html class="no-js supports-no-cookies {% if settings.enable_box %}box-layout {% endif %}" lang="{{ shop.locale }}" dir="{%- if settings.enable_rtl -%}rtl{%- else -%}ltr{%- endif -%}">
-<head>{% render 'yoast-seo' %}
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1KP6ZXXHM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<head>
+  {% render 'header_file' %}
+  {% render 'font-css' %}
+  {% render 'yoast-seo' %}
+  <!-- Google tag (gtag.js) -->
+  <script type="lazyload_int" data-src="https://www.googletagmanager.com/gtag/js?id=G-S1KP6ZXXHM"></script>
+  <script type="lazyload_int">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-S1KP6ZXXHM');
+  </script>
+  
+  <meta name="facebook-domain-verification" content="zi2glcdafswqiyxyyho9pwx38ohif0" />
 
-  gtag('config', 'G-S1KP6ZXXHM');
-</script>
-<meta name="facebook-domain-verification" content="zi2glcdafswqiyxyyho9pwx38ohif0" />
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WLS85SRL');</script>
-<!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+  <script type="lazyload_int">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WLS85SRL');</script>
+  <!-- End Google Tag Manager -->
+  
   <!-- Basic and Helper page needs -->
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
@@ -26,7 +31,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="theme-color" content="var(--font-color-primary)">
   
   
-  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  
     {%- unless settings.body_custom_font_handle_enable and settings.header_custom_font_handle_enable and settings.section_header_custom_font_handle_enable and settings.paragraph_custom_font_handle_enable and settings.other_custom_font_handle_enable -%}
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
@@ -80,57 +86,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% endunless %}
     {% endcapture %}
     {%- comment -%}Auto-disabled. Yoast plugin is taking care of SEO output.{%- endcomment -%}
-{%- if disabled_by_yoast_seo -%}
-<title>{{ seo_title }}</title>
-{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
-{%- endif -%}
+    {%- if disabled_by_yoast_seo -%}
+    <title>{{ seo_title }}</title>
+    {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+    {%- endif -%}
 
     {%- if page_description -%}
     {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
-{%- if disabled_by_yoast_seo -%}
-<meta name="description" content="{{ page_description | escape }}">
-{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
-{%- endif -%}
+      {%- if disabled_by_yoast_seo -%}
+      <meta name="description" content="{{ page_description | escape }}">
+      {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+      {%- endif -%}
     {%- endif -%}
     
     <!-- Helpers -->
     {% render 'social-meta-tags' %}
 
+
+    {% if template contains 'index' or template contains 'collection' or template contains 'product' %}
+		{%- render 'font-main' -%}
+	{% else %}
+		{%- render 'font-other' -%}
+	{% endif %}
+  
     <!-- CSS -->
     <style>
-    {% if settings.header_custom_font_handle_enable %}
-    @import url('https://fonts.googleapis.com/css2?family={{ settings.header_custom_font_handle }}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    {% else %}
-    {{ header_font | font_face: font_display: 'swap' }}
-    {% endif %}
-    
-    {% if settings.section_header_custom_font_handle_enable %}
-    @import url('https://fonts.googleapis.com/css2?family={{ settings.section_header_custom_font_handle }}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    {% else %}
-    {{ section_header_font | font_face: font_display: 'swap' }}
-    {% endif %}
-    
-    {% if settings.paragraph_custom_font_handle_enable %}
-    @import url('https://fonts.googleapis.com/css2?family={{ settings.paragraph_custom_font_handle }}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    {% else %}
-    {{ paragraph_font | font_face: font_display: 'swap' }}
-    {% endif %}
-    
-    {% if settings.other_custom_font_handle_enable %}
-    @import url('https://fonts.googleapis.com/css2?family={{ settings.other_custom_font_handle }}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    {% else %}
-    {{ other_font | font_face: font_display: 'swap' }}
-    {% endif %}
-    
-    {% if settings.body_custom_font_handle_enable %}
-    @import url('https://fonts.googleapis.com/css2?family={{ settings.body_custom_font_handle }}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    {% else %}
-    {{ body_font | font_face: font_display: 'swap' }}
-    {{ body_font_bolder | font_face: font_display: 'swap' }}
-    {{ body_font_bold | font_face: font_display: 'swap' }}
-    {{ body_font_italic | font_face: font_display: 'swap' }}
-    {{ body_font_bold_italic | font_face: font_display: 'swap' }}
-    {% endif %}
     
     {%- liquid
     unless settings.header_custom_font_handle_enable
@@ -166,7 +146,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       endunless
     -%}
     </style>
-    {%- render 'header-css' -%}
+
+    {% if template contains "index" %}
+		{% render "index-css" %}		
+	{% endif %}
+
+    {% if template contains "collection" %}
+	   {% render "collection-css" %}		
+	{% endif %}
+
+    {% if template contains "product" %}
+		{% render "product-css" %}		
+	{% endif %}
+
+  	{% if template contains 'index' or template contains 'collection' or template contains 'product' %}
+		{%- render 'header-css' -%}
+	{% else %}
+		{%- render 'header-css2' -%}
+	{% endif %}
+  
     {%- render 'css-variables' -%}
     <style>
     {%- liquid 
@@ -267,42 +265,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --box-body-bgcolor: {{ settings.box_body_bgcolor }};
     }
   </style>
-  {{ content_for_header }}
+  
+    {%- if request.design_mode or template contains 'cart' or template contains 'checkout' -%}
+            {{ content_for_header }}
+    {%- else -%}
+            {% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
+            {{ content_for_header2 | replace: ' defer="defer" ', ' type="lazyload_int" ' | replace: " src=", " data-src="| replace: "DOMContentLoaded", "w3-DOMContentLoaded" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('w3-DOMContentLoaded', asyncLoad, false);" | replace: "addEventListener('load', prefetchAssets);", "addEventListener('w3-DOMContentLoaded', prefetchAssets);" }}
+            <script>var trekkie=[];trekkie.integrations=!0;window.BOOMR={},window.BOOMR.version=true;</script>
+    {%- endif -%}
+  
   {%- render 'header-js' -%}
 
   {% if template contains 'customers' or 'cart' %}
-  <script type="text/javascript" src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+  <script type="lazyload_int" data-src="{{ 'shopify_common.js' | shopify_asset_url }}"></script>
   {% endif %}
-
+  
+  {% render 'custom-css' %}
+  {% render 'app-block' %}
 {% include 'store-credit-launcher' %}
 </head>
 
 <body  id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template.name | handle }}">
     <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLS85SRL"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLS85SRL"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
   {% render 'slow-window' %}
+  
   {%- liquid
     if template == 'index' and settings.newsletter_popup_enable
     render 'newsletter-popup'
     endif
   -%}
+  
   {% section 'top-nocification-bar' %}
   {% section 'header' %}
 
   {%- if template != 'index' and template != 'product' -%}
-  {% render 'breadcrumb-banner' %}
+    {% render 'breadcrumb-banner' %}
   {%- endif -%}
   
   <main role="main">
     {{ content_for_layout }}
   </main>
+  
   {% render 'fullscreen-bg' %}
 
-  {% liquid 
-    section 'our-services' %}
-    
+  {% liquid section 'our-services' %}
   {% section 'footer' %}
 
   {% section 'copy-right' %}
@@ -310,6 +320,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Necessary JS -->
   {% render 'footer-js' %}
   
+  {% render 'footer_file' %}
+  {% render 'footer-app-block' %}
 {% include 'store-credit-launcher' %}
 </body>
 </html>

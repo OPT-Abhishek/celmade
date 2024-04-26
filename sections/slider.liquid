@@ -51,7 +51,7 @@
     {% endfor %}
   </div>
 </section>
-<script type="text/javascript">
+<script type="lazyload_int">
   addEventListener('DOMContentLoaded', (event) => {
     var owl = $('#home-slider-{{ section.id }}');
     owl.owlCarousel({
@@ -396,7 +396,6 @@
   }
   .slider-content:after {
     content: "";
-    background-image: url('{{ 'bg-patern.png' | asset_url }}');
     position: absolute;
     bottom: 0;
     left: 0;

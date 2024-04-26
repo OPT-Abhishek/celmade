@@ -532,8 +532,8 @@
   ]
 }
 {% endschema %}
-<script type="text/javascript">
-  window.onload = function() {
+<script type="lazyload_int">
+  setTimeout(function() {
     $('.slider-for').slick({
       slidesToShow: 1,
       arrows: false,
@@ -596,7 +596,7 @@
     {% endif %}
     {% endfor %}
     $('.product-single .single-option-selector').wrap('<div class="selector-arrow">');
-  };
+  },1000);
   var selectCallback = function(variant, selector) {
     timber.productPage({
       money_format: "{{ shop.money_format }}",

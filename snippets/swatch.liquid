@@ -76,7 +76,7 @@
       </div>
       {% endunless %}
       {% if variant.available %}
-      <script type="text/javascript">
+      <script type="lazyload_int">
         window.addEventListener("DOMContentLoaded", function() {
           $('.swatch[data-option-index="{{ option_index }}"] .{{ value | handle }}').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
         }); 

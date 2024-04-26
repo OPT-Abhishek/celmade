@@ -48,11 +48,11 @@
 <style> #shipping-calculator { display: none; } </style> 
 <![endif]--> 
 
-<script type="text/javascript" src="{{ 'underscore-min.js' | asset_url }}" defer></script>
-<script src="/services/javascripts/countries.js" type="text/javascript" defer="defer"></script>
-<script type="text/javascript" src="{{ 'cart-shipping-calculator.min.js' | asset_url }}" defer></script>
+<script type="lazyload_int" data-src="{{ 'underscore-min.js' | asset_url }}"></script>
+<script type="lazyload_int" data-src="/services/javascripts/countries.js"></script>
+<script type="lazyload_int" data-src="{{ 'cart-shipping-calculator.min.js' | asset_url }}"></script>
 
-<script type="text/javascript">
+<script type="lazyload_int">
   addEventListener('DOMContentLoaded', (event) => {
     Shopify.Cart.ShippingCalculator.show( {
       submitButton: "{{ settings.shipping_calculator_submit_button_label | default: 'Calculate shipping' }}", 
